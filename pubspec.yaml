@@ -1,8 +1,8 @@
 name: background_app_bar
 description: A background app bar plugin,
 version: 0.0.1
-author:
-homepage:
+author: LeonColt<lionmanbloodsucker@yahoo.com>
+homepage: https://github.com/LeonColt/background_app_bar
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
