@@ -1,8 +1,6 @@
 # Widget Background App Bar
 
-Love the material AppBar? Do you want to add more color to the appbar? Here's a BackgroundAppBar.
-
-It works just like the normal AppBar. Also with actions, back buttons, titles. So it's just your normal AppBar, but with a Background!
+A background app bar plugin, use this plugin if you want to preserve background of sliver app bar when scrolling,
 
 inspired by GradientAppBar [GitHub](https://github.com/joostlek/GradientAppBar)
 
@@ -20,7 +18,7 @@ inspired by GradientAppBar [GitHub](https://github.com/joostlek/GradientAppBar)
 
 2. Import it: ```import 'package:background_app_bar/background_app_bar.dart'```
 
-3. Replace your current AppBar (In the scaffold) to BackgroundAppBar.
+3. Replace your current FlexibleSpaceBar (In the AppBar or SliverAppBar) to BackgroundFlexibleSpaceBar.
 
 
 ```
