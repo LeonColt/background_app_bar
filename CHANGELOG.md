@@ -9,3 +9,7 @@
      remove SliverBackgroundAppBar has been remove, use SliverAppBar instead, for same effect see example.
 
 * add BackgroundFlexibleSpaceBar Widget
+
+## [1.0.1] - 27 September 2019
+
+* fix documentation
