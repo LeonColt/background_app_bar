@@ -1,4 +1,3 @@
-'''
 import 'dart:ui';
 
 import 'package:background_app_bar/background_app_bar.dart';
@@ -201,4 +200,3 @@ class _MyHomePageState extends State<MyHomePage> {
 		);
 	}
 }
-'''
