@@ -5,6 +5,7 @@ A background app bar plugin, use this plugin if you want to preserve background 
 inspired by GradientAppBar [GitHub](https://github.com/joostlek/GradientAppBar)
 
 ## Screenshots
+Don't forget to tap + button 5 times
 
 [![Screenshot-1565398534.png](https://i.postimg.cc/WpF6z39h/Screenshot-1565398534.png)](https://postimg.cc/grp6BYbW)
 [![Screenshot-1569417041.png](https://i.postimg.cc/28fWXhr0/Screenshot-1569417041.png)](https://postimg.cc/hhphXJJm)
