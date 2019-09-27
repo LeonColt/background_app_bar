@@ -1,3 +1,4 @@
+```
 import 'dart:ui';
 
 import 'package:background_app_bar/background_app_bar.dart';
@@ -27,7 +28,7 @@ class MyHomePageSliver extends StatefulWidget {
 	@override State<StatefulWidget> createState() => _MyHomePageSliverState();
 }
 
-class _MyHomePageSliverState extends State<MyHomePageSliver> {
+class _MyHomePageSliverState extends State\<MyHomePageSliver\> {
 
 	int _counter = 0;
 
@@ -124,7 +125,7 @@ class MyHomePage extends StatefulWidget {
 	_MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State\<MyHomePage\> {
 	int _counter = 0;
 
 	@override
@@ -200,3 +201,4 @@ class _MyHomePageState extends State<MyHomePage> {
 		);
 	}
 }
+```
