@@ -82,7 +82,7 @@ class _BackgroundFlexibleSpaceBarState extends State<BackgroundFlexibleSpaceBar>
 	
 	@override
 	Widget build(BuildContext context) {
-		final FlexibleSpaceBarSettings settings = context.inheritFromWidgetOfExactType(FlexibleSpaceBarSettings);
+		final FlexibleSpaceBarSettings settings = context.dependOnInheritedWidgetOfExactType( aspect: FlexibleSpaceBarSettings );
 		assert(settings != null, 'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
 		
 		final List<Widget> children = <Widget>[];
