@@ -5,28 +5,25 @@ import 'package:flutter/widgets.dart';
 
 class BackgroundFlexibleSpaceBar extends StatefulWidget {
   const BackgroundFlexibleSpaceBar({
-    Key key,
-    @required this.background,
+    Key? key,
+    required this.background,
     this.title,
     this.centerTitle,
     this.titlePadding,
     this.collapseMode = CollapseMode.parallax,
-  })  : assert(collapseMode != null),
-        assert(background != null),
-        super(key: key);
-  final Widget title;
+  }) : super(key: key);
+  final Widget? title;
   final Widget background;
-  final bool centerTitle;
+  final bool? centerTitle;
   final CollapseMode collapseMode;
-  final EdgeInsetsGeometry titlePadding;
+  final EdgeInsetsGeometry? titlePadding;
   static Widget createSettings({
-    double toolbarOpacity,
-    double minExtent,
-    double maxExtent,
-    @required double currentExtent,
-    @required Widget child,
+    double? toolbarOpacity,
+    double? minExtent,
+    double? maxExtent,
+    required double currentExtent,
+    required Widget child,
   }) {
-    assert(currentExtent != null);
     return FlexibleSpaceBarSettings(
       toolbarOpacity: toolbarOpacity ?? 1.0,
       minExtent: minExtent ?? currentExtent,
@@ -44,8 +41,7 @@ class BackgroundFlexibleSpaceBar extends StatefulWidget {
 class _BackgroundFlexibleSpaceBarState
     extends State<BackgroundFlexibleSpaceBar> {
   bool _getEffectiveCenterTitle(ThemeData theme) {
-    if (widget.centerTitle != null) return widget.centerTitle;
-    assert(theme.platform != null);
+    if (widget.centerTitle != null) return widget.centerTitle!;
     switch (theme.platform) {
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -56,20 +52,17 @@ class _BackgroundFlexibleSpaceBarState
       case TargetPlatform.macOS:
         return true;
     }
-    return null;
   }
 
   Alignment _getTitleAlignment(bool effectiveCenterTitle) {
     if (effectiveCenterTitle) return Alignment.bottomCenter;
     final TextDirection textDirection = Directionality.of(context);
-    assert(textDirection != null);
     switch (textDirection) {
       case TextDirection.rtl:
         return Alignment.bottomRight;
       case TextDirection.ltr:
         return Alignment.bottomLeft;
     }
-    return null;
   }
 
   double _getCollapsePadding(double t, FlexibleSpaceBarSettings settings) {
@@ -82,15 +75,12 @@ class _BackgroundFlexibleSpaceBarState
         final double deltaExtent = settings.maxExtent - settings.minExtent;
         return -Tween<double>(begin: 0.0, end: deltaExtent / 4.0).transform(t);
     }
-    return null;
   }
 
   @override
   Widget build(BuildContext context) {
-    final FlexibleSpaceBarSettings settings = context
-        .dependOnInheritedWidgetOfExactType(aspect: FlexibleSpaceBarSettings);
-    assert(settings != null,
-        'A FlexibleSpaceBar must be wrapped in the widget returned by FlexibleSpaceBar.createSettings().');
+    final FlexibleSpaceBarSettings settings =
+        context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>()!;
 
     final List<Widget> children = <Widget>[];
 
@@ -118,7 +108,7 @@ class _BackgroundFlexibleSpaceBarState
       switch (theme.platform) {
         case TargetPlatform.iOS:
         case TargetPlatform.macOS:
-          title = widget.title;
+          title = widget.title!;
           break;
         case TargetPlatform.android:
         case TargetPlatform.fuchsia:
@@ -151,7 +141,7 @@ class _BackgroundFlexibleSpaceBarState
           child: Align(
             alignment: titleAlignment,
             child: DefaultTextStyle(
-              style: Theme.of(context).primaryTextTheme.headline6,
+              style: theme.primaryTextTheme.headline6!,
               child: title,
             ),
           ),

@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePageSliver extends StatefulWidget {
-  MyHomePageSliver({Key key, this.title, this.counter}) : super(key: key);
-  final String title;
-  final int counter;
+  MyHomePageSliver({Key? key, this.title, this.counter}) : super(key: key);
+  final String? title;
+  final int? counter;
   @override State<StatefulWidget> createState() => new _MyHomePageSliverState();
 }
 
@@ -40,7 +40,7 @@ class _MyHomePageSliverState extends State<MyHomePageSliver> {
           elevation: 0.0,
           backgroundColor: Colors.transparent,
           flexibleSpace: new BackgroundFlexibleSpaceBar(
-            title: new Text( widget.title ),
+            title: widget.title != null ? new Text( widget.title! ) : null,
             centerTitle: false,
             titlePadding: const EdgeInsets.only(left: 20.0, bottom: 20.0),
             background: new ClipRect(
@@ -58,7 +58,7 @@ class _MyHomePageSliverState extends State<MyHomePageSliver> {
                         image: new AssetImage(
                           "images/bg.jpg",
                         ),
-                        fit: BoxFit.fitWidth
+                        fit: BoxFit.fill,
                     )
                 ),
               ),
@@ -115,9 +115,9 @@ class _MyHomePageSliverState extends State<MyHomePageSliver> {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title, this.counter}) : super(key: key);
-  final String title;
-  final int counter;
+  MyHomePage({Key? key, this.title, this.counter}) : super(key: key);
+  final String? title;
+  final int? counter;
   @override _MyHomePageState createState() => new _MyHomePageState();
 }
 
@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text(widget.title),
+        title: widget.title != null ? new Text(widget.title!) : null,
         flexibleSpace: new ClipRect(
           child: new Container(
             child: new BackdropFilter(

@@ -1,11 +1,11 @@
 name: background_app_bar
 description: A background app bar plugin, use this plugin if you want to preserve background of sliver app bar when scrolling,
-version: 1.0.3
+version: 2.0.0
 author: LeonColt<lionmanbloodsucker@yahoo.com>
 homepage: https://github.com/LeonColt/background_app_bar
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
