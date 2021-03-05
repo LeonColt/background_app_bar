@@ -21,3 +21,7 @@
 ## [1.0.3] - 7 December 2020
 
 * Fix Warnings
+
+## [2.0.0] - 5 March 2021
+
+* Migrate to null-safety
