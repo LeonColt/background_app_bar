@@ -2,7 +2,7 @@ name: background_app_bar
 description: A background app bar plugin, use this plugin if you want to preserve background of sliver app bar when scrolling,
 repository: https://github.com/LeonColt/background_app_bar
 issue_tracker: https://github.com/LeonColt/background_app_bar/issues
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/LeonColt/background_app_bar
 
 environment:
