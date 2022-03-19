@@ -1,6 +1,6 @@
 # Change Log
 
-## [2.0.1] - 20 March 2021
+## [2.0.1] - 20 March 2022
 
 * follow flutter lints
 * remove unused imports
