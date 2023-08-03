@@ -8,12 +8,14 @@ class BackgroundFlexibleSpaceBar extends StatefulWidget {
     this.centerTitle,
     this.titlePadding,
     this.collapseMode = CollapseMode.parallax,
+    this.expandedTitleScale = 1.5,
   }) : super(key: key);
   final Widget? title;
   final Widget background;
   final bool? centerTitle;
   final CollapseMode collapseMode;
   final EdgeInsetsGeometry? titlePadding;
+  final double expandedTitleScale;
   static Widget createSettings({
     double? toolbarOpacity,
     double? minExtent,
@@ -126,7 +128,7 @@ class _BackgroundFlexibleSpaceBarState
             bottom: 16.0,
           );
       final double scaleValue =
-          Tween<double>(begin: 1.5, end: 1.0).transform(t);
+          Tween<double>(begin: widget.expandedTitleScale, end: 1.0).transform(t);
       final Matrix4 scaleTransform = Matrix4.identity()
         ..scale(scaleValue, scaleValue, 1.0);
       final Alignment titleAlignment = _getTitleAlignment(effectiveCenterTitle);
