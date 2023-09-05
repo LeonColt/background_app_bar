@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class BackgroundFlexibleSpaceBar extends StatefulWidget {
   const BackgroundFlexibleSpaceBar({
-    Key? key,
+    final Key? key,
     required this.background,
     this.title,
     this.centerTitle,
@@ -17,11 +17,11 @@ class BackgroundFlexibleSpaceBar extends StatefulWidget {
   final EdgeInsetsGeometry? titlePadding;
   final double expandedTitleScale;
   static Widget createSettings({
-    double? toolbarOpacity,
-    double? minExtent,
-    double? maxExtent,
-    required double currentExtent,
-    required Widget child,
+    final double? toolbarOpacity,
+    final double? minExtent,
+    final double? maxExtent,
+    required final double currentExtent,
+    required final Widget child,
   }) {
     return FlexibleSpaceBarSettings(
       toolbarOpacity: toolbarOpacity ?? 1.0,
@@ -33,13 +33,13 @@ class BackgroundFlexibleSpaceBar extends StatefulWidget {
   }
 
   @override
-  _BackgroundFlexibleSpaceBarState createState() =>
+  State<BackgroundFlexibleSpaceBar> createState() =>
       _BackgroundFlexibleSpaceBarState();
 }
 
 class _BackgroundFlexibleSpaceBarState
     extends State<BackgroundFlexibleSpaceBar> {
-  bool _getEffectiveCenterTitle(ThemeData theme) {
+  bool _getEffectiveCenterTitle(final ThemeData theme) {
     if (widget.centerTitle != null) return widget.centerTitle!;
     switch (theme.platform) {
       case TargetPlatform.android:
@@ -53,7 +53,7 @@ class _BackgroundFlexibleSpaceBarState
     }
   }
 
-  Alignment _getTitleAlignment(bool effectiveCenterTitle) {
+  Alignment _getTitleAlignment(final bool effectiveCenterTitle) {
     if (effectiveCenterTitle) return Alignment.bottomCenter;
     final TextDirection textDirection = Directionality.of(context);
     switch (textDirection) {
@@ -64,7 +64,10 @@ class _BackgroundFlexibleSpaceBarState
     }
   }
 
-  double _getCollapsePadding(double t, FlexibleSpaceBarSettings settings) {
+  double _getCollapsePadding(
+    final double t,
+    final FlexibleSpaceBarSettings settings,
+  ) {
     switch (widget.collapseMode) {
       case CollapseMode.pin:
         return -(settings.maxExtent - settings.currentExtent);
@@ -77,7 +80,7 @@ class _BackgroundFlexibleSpaceBarState
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final FlexibleSpaceBarSettings settings =
         context.dependOnInheritedWidgetOfExactType<FlexibleSpaceBarSettings>()!;
 
@@ -92,13 +95,15 @@ class _BackgroundFlexibleSpaceBarState
             .clamp(0.0, 1.0);
 
     // background image
-    children.add(Positioned(
-      top: _getCollapsePadding(t, settings),
-      left: 0.0,
-      right: 0.0,
-      height: settings.maxExtent,
-      child: widget.background,
-    ));
+    children.add(
+      Positioned(
+        top: _getCollapsePadding(t, settings),
+        left: 0.0,
+        right: 0.0,
+        height: settings.maxExtent,
+        child: widget.background,
+      ),
+    );
 
     if (widget.title != null) {
       final ThemeData theme = Theme.of(context);
@@ -128,24 +133,27 @@ class _BackgroundFlexibleSpaceBarState
             bottom: 16.0,
           );
       final double scaleValue =
-          Tween<double>(begin: widget.expandedTitleScale, end: 1.0).transform(t);
+          Tween<double>(begin: widget.expandedTitleScale, end: 1.0)
+              .transform(t);
       final Matrix4 scaleTransform = Matrix4.identity()
         ..scale(scaleValue, scaleValue, 1.0);
       final Alignment titleAlignment = _getTitleAlignment(effectiveCenterTitle);
-      children.add(Container(
-        padding: padding,
-        child: Transform(
-          alignment: titleAlignment,
-          transform: scaleTransform,
-          child: Align(
+      children.add(
+        Container(
+          padding: padding,
+          child: Transform(
             alignment: titleAlignment,
-            child: DefaultTextStyle(
-              style: theme.primaryTextTheme.headline6!,
-              child: title,
+            transform: scaleTransform,
+            child: Align(
+              alignment: titleAlignment,
+              child: DefaultTextStyle(
+                style: theme.primaryTextTheme.titleLarge!,
+                child: title,
+              ),
             ),
           ),
         ),
-      ));
+      );
     }
 
     return ClipRect(child: Stack(children: children));

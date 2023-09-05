@@ -1,5 +1,9 @@
 # Change Log
 
+## [2.1.0] - 5 September 2023
+
+* add parameter expandedTitleScale default to 1.5
+
 ## [2.0.1] - 20 March 2022
 
 * follow flutter lints
