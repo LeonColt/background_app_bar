@@ -1,5 +1,9 @@
 # Change Log
 
+## [2.1.0+1] - 23 January 2025
+
+* fix replace withOpacity with withValues in example
+
 ## [2.1.0] - 5 September 2023
 
 * add parameter expandedTitleScale default to 1.5
